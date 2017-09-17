@@ -1,7 +1,7 @@
 README
 
 Demo Description
-  The demo is a simple client-server setup demonstrating a simplified version of TLS/SSL
+  The demo is a simple client-server setup demonstrating a simplified version of TLS/SSL.
 
   A client will send messages to the server and will then wait for an echo.
   The client initiates the connection to perform a simplified TLS handshake with the server in order to share a session key to encrypt the messages sent and then echoed back. The client and server will both run until stopped. The client sends messages every 10 seconds.
@@ -29,3 +29,10 @@ Running the Demo
   Run the following to start the Client. This is intended to be done is another terminal window for demonstration purposes.
 
     ./startClient
+
+
+Issues
+
+  I have had some problems when running the client. It will sometimes fail due to an initialization vector size error. This is typically ignored by running the client again. On occasion, the client will freeze up when sending the session key. You can kill the client, but the server also is brought down, so both need to be restarted.
+
+  Obviously, there are issues, but this system is sufficient to demonstrate TLS in a simplified fashion.
