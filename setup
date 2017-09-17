@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Generate RSA Keys
+cd /root/ServerKeys
+./root/RSAKeyGeneration/makeRSAKeyPair Server 4096
+cd /root/ClientKeys
+./root/RSAKeyGeneration/makeRSAKeyPair Client 4096

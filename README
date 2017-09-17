@@ -1,0 +1,31 @@
+README
+
+Demo Description
+  The demo is a simple client-server setup demonstrating a simplified version of TLS/SSL
+
+  A client will send messages to the server and will then wait for an echo.
+  The client initiates the connection to perform a simplified TLS handshake with the server in order to share a session key to encrypt the messages sent and then echoed back. The client and server will both run until stopped. The client sends messages every 10 seconds.
+
+  The basics of the TLS handshake are:
+    1. Client connects to server, shares certificate, asks server to identify itself
+    2.    Server sends public key
+    3. Client creates, encrypts (with server public key), and sends AES session key
+    4.    Server decrypts session key, sends acknowledgement (encrypted with session key)
+    .... All proceeding transmissions encrypted with session key
+
+  Both the client and server show information regarding the handshake while running. This is the observable. The output should be labelled with the corresponding step of TLS above.
+
+
+Running the Demo
+
+  In the root folder, there is a setup script that will generate a set of RSA key files for both the Server and Client. Run this with:
+
+    ./setup
+
+  Run the following script to start the Server
+
+    ./startServer
+
+  Run the following to start the Client. This is intended to be done is another terminal window for demonstration purposes.
+
+    ./startClient
