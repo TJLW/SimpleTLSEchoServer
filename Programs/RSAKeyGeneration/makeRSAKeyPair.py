@@ -7,14 +7,24 @@ from certgen import *
 
 # Require ID argument
 if len(sys.argv) < 3:
-    print('Usage: python makeRSAKeyPair.py ID SIZE')
+    print('Usage: python makeRSAKeyPair.py ID SIZE [OPTIONS]')
+    print('OPTIONS:')
+    print('  -d <DirectoryPath>    Provide directory to save keys')
     sys.exit(1)
 
 ID = sys.argv[1]
 size = int(sys.argv[2])
 
-privateKeyFilename = ID + '.pkey'
-publicKeyFilename = ID + '.pubkey'
+# Options
+keyPath = ''
+for i in range(3,len(sys.argv)):
+    # Output to specified directory instead of current directory
+    if sys.argv[i] == '-d' and len(sys.argv) > i+1:
+        keyPath = sys.argv[i+1]
+
+
+privateKeyFilename = keyPath + '/' + ID + '.pkey'
+publicKeyFilename = keyPath + '/' + ID + '.pubkey'
 
 key = createKeyPair(crypto.TYPE_RSA, size)
 

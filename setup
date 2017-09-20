@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Generate RSA Keys
-cd /root/ServerKeys
-./root/RSAKeyGeneration/makeRSAKeyPair Server 4096
-cd /root/ClientKeys
-./root/RSAKeyGeneration/makeRSAKeyPair Client 4096
+cd ServerKeys
+python3 ../Programs/RSAKeyGeneration/makeRSAKeyPair.py Server 4096 -d `pwd`
+cd ../ClientKeys
+python3 ../Programs/RSAKeyGeneration/makeRSAKeyPair.py Client 4096 -d `pwd`
